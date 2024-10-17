@@ -275,14 +275,14 @@
     };
 
     function showSignature(index) {
-        // Hide all signatures
-        const signatures = document.querySelectorAll('.signatureù');
-        signatures.forEach(sig => sig.style.display = "none");
+        // Hide all elements with the 'signatureù' class
+        const signatures = document.querySelectorAll('.signature');
+        signatures.forEach(sig => sig.style.display = 'none');
     
-        // Show the selected signature based on index
-        document.querySelector(`#signature-content-${index}`).style.display = "block";
+        // Show the selected signature based on the index
+        signatures[index].style.display = 'block';
     
-        // Update the active tab (if applicable)
+        // Update active state for the tabs (if applicable)
         const tabs = document.querySelectorAll('.tab');
         tabs.forEach(tab => tab.classList.remove('active'));
         tabs[index].classList.add('active');
