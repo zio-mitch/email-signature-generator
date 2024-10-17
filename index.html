@@ -5,80 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Signature Generator</title>
     <meta name="description" content="Create stunning and professional email signatures for free! Stand out in every inbox with just a few clicks.">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Email Signature Generator">
     <meta property="og:description" content="Create stunning and professional email signatures for free! Stand out in every inbox with just a few clicks.">
     <meta property="og:image" content="https://zio-mitch.github.io/email-signature-generator/content-image.jpg">
     <meta property="og:url" content="https://zio-mitch.github.io/email-signature-generator/">
     <meta property="og:type" content="website">
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f7f7f7;
-            color: #333;
-        }
-        h1, h2 {
-            color: #1a73e8; /* Uniform color for headings */
+            margin: 20px;
+            background: #f7f7f7;
         }
         h1 {
-            margin-bottom: 20px; /* Space below the main heading */
+            text-align: center;
+            color: #0073e6;
         }
-        h2 {
-            margin-top: 30px; /* Space above subsections */
-            margin-bottom: 10px; /* Space below subsections */
-        }
-        #signatureInput {
-            width: 100%;
-            height: 150px;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        }
-        #output {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-top: 10px;
-            background-color: #fff;
-            white-space: pre-wrap; /* Preserve whitespace and line breaks */
-            overflow-x: auto; /* Allow horizontal scrolling */
-            border-radius: 4px; /* Consistent border radius */
+        .description {
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
         }
         button {
-            background-color: #1a73e8; /* Consistent button color */
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #0073e6;
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s; /* Smooth transition for hover */
+            font-size: 16px;
         }
-        button:hover {
-            background-color: #155ab6; /* Darker shade on hover */
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 20px;
+            padding: 10px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        pre {
-            background-color: #f9f9f9; /* Uniform background for code blocks */
+        .output-container {
             border: 1px solid #ccc;
             padding: 10px;
-            overflow-x: auto; /* Allow horizontal scrolling */
-            border-radius: 4px; /* Consistent border radius */
+            margin-top: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .instructions {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Email Signature Generator</h1>
 
-    <h2>Example Email Signature:</h2>
-    <pre id="exampleSignature">
+<h1>Email Signature Generator</h1>
+
+<p class="description">
+    Create a professional email signature effortlessly! 
+    <br>This tool is completely free to use, allowing you to customize and generate your signature in just a few clicks.
+</p>
+
+<textarea id="htmlInput" placeholder="Insert your HTML signature here..."></textarea>
+
+<div class="output-container">
+    <div id="emailSignature">
+        <!-- Dynamic content will be rendered here -->
+    </div>
+</div>
+
+<p>
+    Example:
+    It's necessary to use inline styles.
+</p>
+    
+<pre>
+    <code>
 &lt;div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;"&gt;
     &lt;p style="margin: 0; font-weight: bold;"&gt;John Doe&lt;/p&gt;
     &lt;p style="margin: 5px 0;"&gt;Marketing Manager&lt;/p&gt;
@@ -100,37 +113,56 @@
         &lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
-    </pre>
+    </code>
+</pre>
 
-    <h2>Edit Your Signature:</h2>
-    <textarea id="signatureInput" placeholder="Type your email signature here..."></textarea>
-    <button id="copyButton">Try Me</button>
+<button id="copyButton">Copy Signature</button>
 
-    <h2>Rendered Signature:</h2>
-    <div id="output"></div>
+<div class="instructions" id="instructions">
+    <p>To add your signature to Gmail:</p>
+    <ol>
+        <li>Go to your Gmail account.</li>
+        <li>Click on the gear icon in the upper right corner and select <strong>See all settings</strong>.</li>
+        <li>Scroll down to the <strong>Signature</strong> section.</li>
+        <li>Click on <strong>Create new</strong> and name your signature.</li>
+        <li>In the signature editor, paste your signature (Ctrl + V or Cmd + V).</li>
+        <li>Scroll down and click <strong>Save Changes</strong>.</li>
+    </ol>
+</div>
 
-    <script>
-        const textarea = document.getElementById('signatureInput');
-        const output = document.getElementById('output');
-        const exampleSignature = document.getElementById('exampleSignature').innerText; // Get the quoted example HTML
+<div class="disclaimer">
+    <p>This tool is not affiliated with Gmail or Google. By using this tool, you agree to respect the intellectual property rights associated with any content you copy and paste. Ensure that you have the right to use any images, logos, or text included in your email signature. All rights to the Gmail name and interface are owned by Google LLC.</p>
+</div>
 
-        // Function to render the textarea value
-        const renderSignature = () => {
-            output.innerHTML = textarea.value; // Set the output to the textarea value
-        };
+<script>
+    const htmlInput = document.getElementById('htmlInput');
+    const emailSignature = document.getElementById('emailSignature');
+    const instructions = document.getElementById('instructions');
 
-        // Listen for input changes in the textarea
-        textarea.addEventListener('input', renderSignature);
+    // Function to update the displayed signature
+    function updateSignature() {
+        emailSignature.innerHTML = htmlInput.value;
+    }
 
-        // Copy example signature to textarea on button click
-        document.getElementById('copyButton').addEventListener('click', () => {
-            textarea.value = exampleSignature; // Copy the example HTML
-            renderSignature(); // Render the signature immediately
-        });
+    // Event listener for input changes
+    htmlInput.addEventListener('input', updateSignature);
 
-        // Optionally trigger the initial render
-        renderSignature();
-    </script>
+    // Copy button functionality
+    document.getElementById('copyButton').onclick = function() {
+        // Select the signature
+        const range = document.createRange();
+        range.selectNodeContents(emailSignature);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        
+        // Copy to clipboard
+        document.execCommand('copy');
+        
+        // Alert user and show instructions
+        alert('Signature copied to clipboard! You can now paste it into your Gmail signature.');
+    };
+</script>
+
 </body>
 </html>
-
