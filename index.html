@@ -252,7 +252,7 @@
             .replace(/>\s+</g, '>\n<') // New line between closing and opening tags
             .replace(/<\/[^>]+>/g, '$&\n'); // New line after closing tags
         
-        return formatted.trim(); // Final trim to clean up any excess whitespace
+        return "<br>&nbsp;\n<br>\n" + formatted.trim() + "\n<br>&nbsp;\n<br>"; // Final trim to clean up any excess whitespace
     }
     
     function copyToTextarea(signature) {
