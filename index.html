@@ -240,9 +240,13 @@
         tabs[index].classList.add('active');
     }
 
-    function cleanHtml(html) {
-        // Remove excessive whitespace and tabs
-        return html.replace(/\s+/g, ' ').trim();
+    function cleanHtml(rawHtml) {
+        const cleanText = rawHtml.replace(/<.*?>/g, '');
+    
+        // Normalize spaces (keep indentation but remove extra spaces)
+        const normalizedText = cleanText.replace(/(?<!\S)\s+|\s+(?!\S)/g, ' ').trimStart();
+    
+        return normalizedText;
     }
     
     function copyToTextarea(signature) {
