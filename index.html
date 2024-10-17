@@ -145,48 +145,56 @@
 </div>
 
 <div class="signature active">
-    <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
-      <p><strong>John Doe</strong></p>
-      <p>Software Engineer</p>
-      <p>Company Name</p>
-      <p>Email: <a href="mailto:john.doe@example.com" style="color: #333; text-decoration: none;">john.doe@example.com</a></p>
+    <div class="signature-content">
+        <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+          <p><strong>John Doe</strong></p>
+          <p>Software Engineer</p>
+          <p>Company Name</p>
+          <p>Email: <a href="mailto:john.doe@example.com" style="color: #333; text-decoration: none;">john.doe@example.com</a></p>
+        </div>
     </div>
     <button class="try-signature-btn" onclick="applySignature('signature1')">Try This Signature</button>
 
 </div>
 
 <div class="signature">
-    <div style="font-family: Georgia, serif; font-size: 16px; color: #444; border-left: 4px solid #007BFF; padding-left: 10px;">
-      <p><strong>John Doe</strong> | Senior Developer</p>
-      <p>XYZ Corp | <a href="mailto:john.doe@example.com" style="color: #007BFF; text-decoration: none;">john.doe@example.com</a></p>
-      <p>Website: <a href="http://example.com" style="color: #007BFF; text-decoration: none;">www.example.com</a></p>
+    <div class="signature-content">
+        <div style="font-family: Georgia, serif; font-size: 16px; color: #444; border-left: 4px solid #007BFF; padding-left: 10px;">
+          <p><strong>John Doe</strong> | Senior Developer</p>
+          <p>XYZ Corp | <a href="mailto:john.doe@example.com" style="color: #007BFF; text-decoration: none;">john.doe@example.com</a></p>
+          <p>Website: <a href="http://example.com" style="color: #007BFF; text-decoration: none;">www.example.com</a></p>
+        </div>
     </div>
 
    <button class="try-signature-btn" onclick="applySignature('signature2')">Try This Signature</button>
 </div>
 
 <div class="signature">
-    <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
-        <strong>John Doe</strong><br>
-        Senior Software Engineer<br>
-        <a href="mailto:john.doe@example.com" style="color: #333; text-decoration: none;">john.doe@example.com</a><br>
-        <a href="tel:+123456789" style="color: #333; text-decoration: none;">+1 234 567 89</a><br>
-        <span style="color: gray;">XYZ Corporation</span>
+    <div class="signature-content">
+        <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+            <strong>John Doe</strong><br>
+            Senior Software Engineer<br>
+            <a href="mailto:john.doe@example.com" style="color: #333; text-decoration: none;">john.doe@example.com</a><br>
+            <a href="tel:+123456789" style="color: #333; text-decoration: none;">+1 234 567 89</a><br>
+            <span style="color: gray;">XYZ Corporation</span>
+        </div>
     </div>
 
     <button class="try-signature-btn" onclick="applySignature('signature3')">Try This Signature</button>
 </div>
 
 <div class="signature">
-    <div style="font-family: 'Tahoma', sans-serif; color: #000; background-color: #fff; padding: 15px; border-top: 3px solid #2C3E50;">
-        <strong style="font-size: 17px;">John Doe</strong><br>
-        <span style="font-size: 15px; font-weight: bold;">Senior Analyst</span><br>
-        <span style="font-size: 14px;">Company Name</span><br>
-        <span style="font-size: 14px;">Email: <a href="mailto:john.doe@example.com" style="color: #2C3E50; text-decoration: none;">john.doe@example.com</a></span><br>
-        <span style="font-size: 14px;">Phone: (123) 456-7890</span>
+    <div class="signature-content">
+        <div style="font-family: 'Tahoma', sans-serif; color: #000; background-color: #fff; padding: 15px; border-top: 3px solid #2C3E50;">
+            <strong style="font-size: 17px;">John Doe</strong><br>
+            <span style="font-size: 15px; font-weight: bold;">Senior Analyst</span><br>
+            <span style="font-size: 14px;">Company Name</span><br>
+            <span style="font-size: 14px;">Email: <a href="mailto:john.doe@example.com" style="color: #2C3E50; text-decoration: none;">john.doe@example.com</a></span><br>
+            <span style="font-size: 14px;">Phone: (123) 456-7890</span>
+        </div>
     </div>
 
-    <button class="try-signature-btn" onclick="applySignature('signature4')">Try This Signature</button>
+    <button class="try-signature-btn">Try This Signature</button>
 </div>
 
 <script>
@@ -231,6 +239,22 @@
         tabs.forEach(tab => tab.classList.remove('active'));
         tabs[index].classList.add('active');
     }
+
+    function copyToTextarea(signature) {
+    // Get the textarea element by its ID
+        const textarea = document.getElementById('htmlInput');
+        
+        // Set the value of the textarea to the signature
+        textarea.value = signature;
+    }
+
+    // Example usage: attaching the function to buttons
+    document.querySelectorAll('.try-signature-btn').forEach((button, index) => {
+        button.onclick = function() {
+            const signature = document.querySelectorAll('.signature-content')[index].innerHTML; 
+            copyToTextarea(signature);
+        };
+    });
 
 </script>
 
