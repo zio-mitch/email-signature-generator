@@ -240,13 +240,21 @@
         tabs[index].classList.add('active');
     }
 
-    function cleanHtml(rawHtml) {
-        const cleanText = rawHtml.replace(/<.*?>/g, '');
+    function cleanHtml(htmlString) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlString, 'text/html');
     
-        // Normalize spaces (keep indentation but remove extra spaces)
-        const normalizedText = cleanText.replace(/(?<!\S)\s+|\s+(?!\S)/g, ' ').trimStart();
+        // Serialize the document back to a string
+        const serializer = new XMLSerializer();
+        const formattedHtml = serializer.serializeToString(doc);
     
-        return normalizedText;
+        // Format with indentation and line breaks
+        const formatted = formattedHtml.replace(/></g, '>\n<') // Insert new lines between tags
+            .replace(/(\s*<)/g, '\n$1') // New line before opening tags
+            .replace(/>\s+</g, '>\n<') // New line between closing and opening tags
+            .trim(); // Remove leading/trailing whitespace
+    
+        return formatted;
     }
     
     function copyToTextarea(signature) {
