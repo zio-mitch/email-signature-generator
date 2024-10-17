@@ -241,20 +241,18 @@
     }
 
     function cleanHtml(htmlString) {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlString, 'text/html');
-    
-        // Serialize the document back to a string
-        const serializer = new XMLSerializer();
-        const formattedHtml = serializer.serializeToString(doc);
-    
-        // Format with indentation and line breaks
-        const formatted = formattedHtml.replace(/></g, '>\n<') // Insert new lines between tags
+        let formatted = htmlString
+            .replace(/\s+/g, ' ') // Replace multiple whitespace characters with a single space
+            .trim(); // Trim leading and trailing whitespace
+        
+        // Insert new lines and indentations
+        formatted = formatted
+            .replace(/></g, '>\n<') // Insert new lines between tags
             .replace(/(\s*<)/g, '\n$1') // New line before opening tags
             .replace(/>\s+</g, '>\n<') // New line between closing and opening tags
-            .trim(); // Remove leading/trailing whitespace
-    
-        return formatted;
+            .replace(/<\/[^>]+>/g, '$&\n'); // New line after closing tags
+        
+        return formatted.trim(); // Final trim to clean up any excess whitespace
     }
     
     function copyToTextarea(signature) {
