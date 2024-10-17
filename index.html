@@ -118,7 +118,7 @@
 
 <button id="copyButton">Copy Signature</button>
 
-<div class="instructions" id="instructions" style="display:none;">
+<div class="instructions" id="instructions">
     <p>To add your signature to Gmail:</p>
     <ol>
         <li>Go to your Gmail account.</li>
@@ -129,21 +129,6 @@
         <li>Scroll down and click <strong>Save Changes</strong>.</li>
     </ol>
 </div>
-
-<ul>
-    <li>Open <strong>Gmail</strong> and log in to your account.</li>
-    <li>Click on the <strong>gear icon</strong> (⚙️) in the top right corner to access <strong>Settings</strong>.</li>
-    <li>Select <strong>"See all settings"</strong> from the dropdown menu.</li>
-    <li>Go to the <strong>"Signature"</strong> tab.</li>
-    <li>Click on <strong>"Create new"</strong> to add a new signature.</li>
-    <li>Open a new tab and go to the <a href="https://zio-mitch.github.io/email-signature-generator/">Email Signature Generator</a>.</li>
-    <li>Generate your signature using the tool.</li>
-    <li>Once your signature is generated, <strong>copy</strong> the entire signature by highlighting it and using <strong>Ctrl+C</strong> (or <strong>Cmd+C</strong> on Mac).</li>
-    <li>Return to the Gmail signature settings and <strong>paste</strong> your signature into the text box using <strong>Ctrl+V</strong> (or <strong>Cmd+V</strong> on Mac).</li>
-    <li>Adjust the formatting using the options provided if necessary.</li>
-    <li>Scroll down and click <strong>"Save Changes"</strong> at the bottom of the settings page.</li>
-    <li>Your new signature will now automatically appear in your outgoing emails!</li>
-</ul>
 
 <div class="disclaimer">
     <p>This tool is not affiliated with Gmail or Google. By using this tool, you agree to respect the intellectual property rights associated with any content you copy and paste. Ensure that you have the right to use any images, logos, or text included in your email signature. All rights to the Gmail name and interface are owned by Google LLC.</p>
@@ -176,7 +161,6 @@
         
         // Alert user and show instructions
         alert('Signature copied to clipboard! You can now paste it into your Gmail signature.');
-        instructions.style.display = 'block'; // Show instructions after copying
     };
 </script>
 
