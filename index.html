@@ -205,7 +205,8 @@
 
     // Function to update the displayed signature
     function updateSignature() {
-        emailSignature.innerHTML = htmlInput.value;
+        // Blank spaces are added to make the copy function to get the whole element
+        emailSignature.innerHTML = "&nbsp;\n" + htmlInput.value + "\n&nbsp;" ;
     }
 
     // Event listener for input changes
@@ -247,7 +248,7 @@
             wrap_line_length: 80 // Maximum line length
         });
         
-        return "&nbsp;\n" + formatted.trim() + "\n&nbsp;"; // Final trim to clean up any excess whitespace
+        return formatted;
     }
     
     function copyToTextarea(signature) {
