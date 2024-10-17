@@ -240,12 +240,15 @@
         tabs[index].classList.add('active');
     }
 
+    function cleanHtml(html) {
+        // Remove excessive whitespace and tabs
+        return html.replace(/\s+/g, ' ').trim();
+    }
+    
     function copyToTextarea(signature) {
-    // Get the textarea element by its ID
-        const textarea = document.getElementById('htmlInput');
-        
-        // Set the value of the textarea to the signature
-        textarea.value = signature;
+        const textarea = document.getElementById('signatureTextarea');
+        const cleanedSignature = cleanHtml(signature);
+        textarea.value = cleanedSignature;
     }
 
     // Example usage: attaching the function to buttons
