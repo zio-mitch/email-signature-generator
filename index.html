@@ -246,7 +246,7 @@
     }
     
     function copyToTextarea(signature) {
-        const textarea = document.getElementById('signatureTextarea');
+        const textarea = document.getElementById('htmlInput');
         const cleanedSignature = cleanHtml(signature);
         textarea.value = cleanedSignature;
         updateSignature();
