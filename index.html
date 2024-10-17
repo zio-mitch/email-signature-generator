@@ -23,7 +23,7 @@
             color: #0073e6;
         }
         .description {
-            text-align: center;
+            text-align: left;
             font-size: 16px;
             color: #555;
             margin-bottom: 20px;
@@ -77,8 +77,20 @@
     <br>This tool is completely free to use, allowing you to customize and generate your signature in just a few clicks.
 </p>
 
-<textarea id="htmlInput" placeholder="Insert your HTML signature here...">
-<div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+<textarea id="htmlInput" placeholder="Insert your HTML signature here..."></textarea>
+
+<div class="output-container">
+    <div id="emailSignature">
+        <!-- Dynamic content will be rendered here -->
+    </div>
+</div>
+
+<p>
+    Example:
+    It's necessary to use inline styles.
+</p>
+<pre>
+    <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
     <p style="margin: 0; font-weight: bold;">John Doe</p>
     <p style="margin: 5px 0;">Marketing Manager</p>
     <p style="margin: 5px 0;">Acme Corp</p>
@@ -99,13 +111,7 @@
         </a>
     </p>
 </div>
-</textarea>
-
-<div class="output-container">
-    <div id="emailSignature">
-        <!-- Dynamic content will be rendered here -->
-    </div>
-</div>
+</pre>
 
 <button id="copyButton">Copy Signature</button>
 
