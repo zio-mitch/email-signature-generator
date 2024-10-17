@@ -66,6 +66,32 @@
             border-top: 1px solid #ccc;
             padding-top: 10px;
         }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 15px;
+            background-color: #e0e0e0;
+            margin-right: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .tab.active {
+            background-color: #1a73e8;
+            color: white;
+        }
+        .signature {
+            display: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .signature.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -85,36 +111,60 @@
     </div>
 </div>
 
-<p>
-    Example:
-    It's necessary to use inline styles.
-</p>
-    
-<pre>
-    <code>
-&lt;div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;"&gt;
-    &lt;p style="margin: 0; font-weight: bold;"&gt;John Doe&lt;/p&gt;
-    &lt;p style="margin: 5px 0;"&gt;Marketing Manager&lt;/p&gt;
-    &lt;p style="margin: 5px 0;"&gt;Acme Corp&lt;/p&gt;
-    &lt;p style="margin: 5px 0;"&gt;Phone: &lt;a href="tel:+1234567890" style="color: #1a73e8; text-decoration: none;"&gt;+1 (234) 567-890&lt;/a&gt;&lt;/p&gt;
-    &lt;p style="margin: 5px 0;"&gt;Email: &lt;a href="mailto:john.doe@acmecorp.com" style="color: #1a73e8; text-decoration: none;"&gt;john.doe@acmecorp.com&lt;/a&gt;&lt;/p&gt;
-    &lt;p style="margin: 5px 0;"&gt;Website: &lt;a href="https://www.acmecorp.com" style="color: #1a73e8; text-decoration: none;"&gt;www.acmecorp.com&lt;/a&gt;&lt;/p&gt;
-    &lt;hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;"&gt;
-    &lt;p style="margin: 0; font-size: 12px; color: #666;"&gt;Follow us:&lt;/p&gt;
-    &lt;p style="margin: 5px 0;"&gt;
-        &lt;a href="https://www.facebook.com/acmecorp" style="margin-right: 10px;"&gt;
-            &lt;img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px; vertical-align: middle;"&gt;
-        &lt;/a&gt;
-        &lt;a href="https://twitter.com/acmecorp" style="margin-right: 10px;"&gt;
-            &lt;img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Twitter_bird_logo_2012.svg/1024px-Twitter_bird_logo_2012.svg.png" alt="Twitter" style="width: 20px; height: 20px; vertical-align: middle;"&gt;
-        &lt;/a&gt;
-        &lt;a href="https://www.linkedin.com/company/acmecorp"&gt;
-            &lt;img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 20px; height: 20px; vertical-align: middle;"&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;
-&lt;/div&gt;
-    </code>
-</pre>
+<div class="tabs">
+    <div class="tab active" onclick="showSignature(0)">Signature 1</div>
+    <div class="tab" onclick="showSignature(1)">Signature 2</div>
+    <div class="tab" onclick="showSignature(2)">Signature 3</div>
+    <div class="tab" onclick="showSignature(3)">Signature 4</div>
+</div>
+
+<div class="signature active">
+    <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+        <p style="margin: 0; font-weight: bold;">John Doe</p>
+        <p style="margin: 5px 0;">Marketing Manager</p>
+        <p style="margin: 5px 0;">Acme Corp</p>
+        <p style="margin: 5px 0;">Phone: <a href="tel:+1234567890" style="color: #1a73e8; text-decoration: none;">+1 (234) 567-890</a></p>
+        <p style="margin: 5px 0;">Email: <a href="mailto:john.doe@acmecorp.com" style="color: #1a73e8; text-decoration: none;">john.doe@acmecorp.com</a></p>
+        <p style="margin: 5px 0;">Website: <a href="https://www.acmecorp.com" style="color: #1a73e8; text-decoration: none;">www.acmecorp.com</a></p>
+        <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+        <p style="margin: 0; font-size: 12px; color: #666;">Follow us:</p>
+        <p style="margin: 5px 0;">
+            <a href="https://www.facebook.com/acmecorp" style="margin-right: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+            <a href="https://twitter.com/acmecorp" style="margin-right: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Twitter_bird_logo_2012.svg/1024px-Twitter_bird_logo_2012.svg.png" alt="Twitter" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+            <a href="https://www.linkedin.com/company/acmecorp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+        </p>
+    </div>
+</div>
+
+<div class="signature">
+    <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+        <p style="margin: 0; font-weight: bold;">Jane Smith</p>
+        <p style="margin: 5px 0;">Sales Director</p>
+        <p style="margin: 5px 0;">Beta LLC</p>
+        <p style="margin: 5px 0;">Phone: <a href="tel:+1987654321" style="color: #1a73e8; text-decoration: none;">+1 (987) 654-321</a></p>
+        <p style="margin: 5px 0;">Email: <a href="mailto:jane.smith@betallc.com" style="color: #1a73e8; text-decoration: none;">jane.smith@betallc.com</a></p>
+        <p style="margin: 5px 0;">Website: <a href="https://www.betallc.com" style="color: #1a73e8; text-decoration: none;">www.betallc.com</a></p>
+        <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+        <p style="margin: 0; font-size: 12px; color: #666;">Connect with us:</p>
+        <p style="margin: 5px 0;">
+            <a href="https://www.facebook.com/betallc" style="margin-right: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+            <a href="https://twitter.com/betallc" style="margin-right: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Twitter_bird_logo_2012.svg/1024px-Twitter_bird_logo_2012.svg.png" alt="Twitter" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+            <a href="https://www.linkedin.com/company/betallc">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn" style="width: 20px; height: 20px; vertical-align: middle;">
+            </a>
+        </p>
+    </div>
+</div>
 
 <button id="copyButton">Copy Signature</button>
 
