@@ -274,25 +274,19 @@
         alert('Signature copied to clipboard! You can now paste it into your Gmail signature.');
     };
 
-    document.querySelectorAll('.tablinks').forEach(tab => {
-        tab.addEventListener('click', function (event) {
-            openTab(event, 'TabName'); // Replace 'TabName' with the actual tab content's name
-        });
-    });
-    
-    function openTab(evt, tabName) {
-        // Hide all tab contents
-        const tabContents = document.querySelectorAll('.tabcontent');
-        tabContents.forEach(content => content.style.display = "none");
-    
-        // Remove the 'active' class from all tabs
-        const tabLinks = document.querySelectorAll('.tablinks');
-        tabLinks.forEach(link => link.classList.remove('active'));
-    
-        // Show the current tab and mark it as active
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.classList.add('active');
-    }
+    function showSignature(index) {
+    // Hide all signature contents
+    const contents = document.querySelectorAll('.signature');
+    contents.forEach(content => content.style.display = "none");
+
+    // Remove 'active' class from all tabs
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    // Show the selected signature content and mark the clicked tab as active
+    document.getElementById(`signature-content-${index}`).style.display = "block";
+    tabs[index].classList.add('active');
+}
 
 </script>
 
