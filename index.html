@@ -12,6 +12,7 @@
     <meta property="og:image" content="https://zio-mitch.github.io/email-signature-generator/content-image.jpg">
     <meta property="og:url" content="https://zio-mitch.github.io/email-signature-generator/">
     <meta property="og:type" content="website">
+    <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-html.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -241,29 +242,9 @@
     }
 
     function cleanHtml(htmlString) {
-        let formatted = '';
-        const indentSize = 2; // Number of spaces for indentation
-        let indentLevel = 0;
-    
-        // Regular expression to find HTML tags
-        const tags = htmlString.replace(/\s+/g, ' ') // Replace multiple spaces with a single space
-                              .replace(/>\s+</g, '><') // Remove spaces between closing and opening tags
-                              .trim() // Trim leading/trailing spaces
-                              .split(/(?=<)/g); // Split on opening tags while keeping tags
-    
-        tags.forEach((tag) => {
-            // If it's a closing tag, reduce indentation
-            if (tag.match(/^<\/\w/)) {
-                indentLevel--;
-            }
-    
-            // Apply indentation
-            formatted += ' '.repeat(indentLevel * indentSize) + tag.trim() + '\n';
-    
-            // If it's an opening tag that is not self-closing, increase indentation
-            if (tag.match(/^<\w[^>]*[^/]>.*$/)) {
-                indentLevel++;
-            }
+        let formatted = html_beautify(htmlString, {
+            indent_size: 2, // Use 2 spaces for indentation
+            wrap_line_length: 80 // Maximum line length
         });
         
         return "&nbsp;\n" + formatted.trim() + "\n&nbsp;"; // Final trim to clean up any excess whitespace
