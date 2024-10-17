@@ -275,18 +275,18 @@
     };
 
     function showSignature(index) {
-    // Hide all signature contents
-    const contents = document.querySelectorAll('.signature');
-    contents.forEach(content => content.style.display = "none");
-
-    // Remove 'active' class from all tabs
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => tab.classList.remove('active'));
-
-    // Show the selected signature content and mark the clicked tab as active
-    document.getElementById(`signature-content-${index}`).style.display = "block";
-    tabs[index].classList.add('active');
-}
+        // Hide all signatures
+        const signatures = document.querySelectorAll('.signatureù');
+        signatures.forEach(sig => sig.style.display = "none");
+    
+        // Show the selected signature based on index
+        document.querySelector(`#signature-content-${index}`).style.display = "block";
+    
+        // Update the active tab (if applicable)
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        tabs[index].classList.add('active');
+    }
 
 </script>
 
